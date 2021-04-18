@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+/* 헤더 글자 위치 재설정 */
+.icon {margin-top:24px; margin-left:15px; }
+.contents {padding:30px; text-align:center;
+					font-family: 'Hi Melody', cursive;
+					font-size:25px; 
+					font-weight:4px;}
+.free_board {padding:30px; text-align:center;
+					font-family: 'Hi Melody', cursive;
+					font-size:25px; 
+					font-weight:4px;}
+.store {padding:30px; text-align:center;
+			font-family: 'Hi Melody', cursive;
+			font-size:25px; 
+			font-weight:4px;}
+
+
+/*오른쪽 로그인 회원가입 서치*/
+
+.top {margin-top:10px; margin-left:240px;}
+.search{margin-top:-1px;} 
