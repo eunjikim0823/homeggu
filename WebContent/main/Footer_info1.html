@@ -1,0 +1,127 @@
+<!-- 메인슬라이드 ok
+		아이템 슬라이드 ok 
+		footer ok -->
+
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 
+              어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
+    
+
+	<!-- 부트스트랩/글씨체 -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+     
+     <!-- 자바스크립트 라이브러리 -->
+    <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+    <script src="../js/bootstrap.min.js"></script>
+    
+    <!-- css 파일   -->
+    <link href="../css/Header.css" rel="stylesheet">
+	
+	<link href="../css/Main_slider.css" rel="stylesheet">
+    <link href="../css/swiper.css" rel="stylesheet">
+    
+    <link href="../css/Top_content.css" rel="stylesheet">
+   
+     <link href="../css/Footer.css" rel="stylesheet">
+     <link href="../css/Page.css" rel="stylesheet">
+
+	<!-- 아이템 관련  -->   
+	<script src="../js/item_slider.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+  	<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+ 
+ 
+ 
+  <title>홈꾸 메인화면</title>
+  
+  </head>
+
+  <body>
+  	<!-- 헤더영역------------------------------------------------- -->
+    	<nav class="header">
+	    	<div class="container col-md-12 col-sm-12">
+				<ul class="nav nav-tabs col-md-9 col-sm-9">
+					<li class="icon"><a href="#"><img src="../picture/home.png" class="img-rounded img-responsive" width="50" height="50"></a></li>
+					<li class="login_join text-danger"><a href="#">로그인/회원가입</a></li>
+					<li class="picture_board"><a href="#">홈꾸집들이</a></li>
+					<li class="free_board"><a href="#">자유게시판</a></li>
+					<li class="store"><a href="#">스토어</a></li>
+			   	</ul>	
+			   		 <!--검색창-->
+		             <form class="navbar-form navbar-right col-md-3 col-sm-3 search" role="search">
+		                 <div class="form-group">
+		                    <input type="text" class="form-control" placeholder="item name search">
+		                 </div>
+		                    <button type="button" class="btn btn-default">
+		                    <span style="color:red"><i class="fa fa-search" aria-hidden="true"></i></span>
+		                    </button>
+		             </form>
+		          
+			</div><!-- class="container"-->		
+		</nav><!-- header -->
+	<!-- /헤더영역 -->
+		
+		
+	<!-- 배송비안내 -->
+		<div class="page col-md-12 col-sm-12">
+			<img src="../picture/page1.jpg" alt="" >
+		</div>
+	
+	<!--footer영역  -->
+	 <div id="footer">
+	 	<div class="footer_container col-md-12 col-sm-12">
+	 		<div></div>
+	 		<div class="col-md-3 col-sm-3">
+	 			<ul>
+                    <li><b>사업장명 : 홈꾸미기<hr></b></li>
+                    <li>대표자명 : 김대표</li>
+                    <li>대표번호 :<p>
+                    		02-123-1234</li>
+                    <li>사업자번호 :<p>
+                    		217-88-66697</li>
+                    <li>사업장주소 : <p>
+                    	   서울시 강남구 역삼동<p>
+                    	   홈꾸빌딩</li>
+                </ul>
+	            </div>   <!-- col-md-3 -->
+				<div class="col-md-3 col-sm-3" >
+		 			<ul>
+	                    <li><b>홈꾸안내<hr></b></a></li>
+	                    <li><a href="Page1.html">배송비 안내</a></li>
+	                    <li><a href="Page2.html">교환,반품 방법 안내</a></li>
+	                    <li><a href="Page3.html">배송상태 및 취소 변경 안내</a></li>
+	                </ul>
+		 		</div>	<!-- col-md-3 -->
+		 		<div class="col-md-3 col-sm-3">
+		 			<ul>
+	                    <li><b>입금계좌<hr></b></li>
+	                    <li>국민 : 000-000-0000</li>
+	                    <li>예금주 : 홈꾸미기</li>
+	                </ul>
+		 		</div>	<!-- col-md-3 -->
+		 		<div class="col-md-3 col-sm-3">
+		 			<ul>
+	                    <li><b>고객센터<hr></b></li>
+	                    <li>1588-1588</li>
+	                    <li>OPEN : 10:00 ~ 17:00</li>
+	                     <li>공휴일 및 토요일 일요일<p>
+	                     		[휴무]</li>
+	                </ul>
+		 		</div>	<!-- col-md-3 -->
+	 		</div><!-- footer_container -->
+	 	</div> <!-- footer -->
+
+  </body>
+</html>
