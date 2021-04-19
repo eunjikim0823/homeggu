@@ -587,9 +587,9 @@
 				<div class="col-md-3 col-sm-3" >
 		 			<ul>
 	                    <li><b>홈꾸안내<hr></b></a></li>
-	                    <li><a href="Page1.html">배송비 안내</a></li>
-	                    <li><a href="Page2.html">교환,반품 방법 안내</a></li>
-	                    <li><a href="Page3.html">배송상태 및 취소 변경 안내</a></li>
+	                    <li><a href="Footer_info1.html">배송비 안내</a></li>
+	                    <li><a href="Footer_info2.html">교환,반품 방법 안내</a></li>
+	                    <li><a href="Footer_info3.html">배송상태 및 취소 변경 안내</a></li>
 	                </ul>
 		 		</div>	<!-- col-md-3 -->
 		 		<div class="col-md-3 col-sm-3">
