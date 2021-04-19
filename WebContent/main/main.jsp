@@ -22,13 +22,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
     <script src="../js/bootstrap.min.js"></script>
+  
     
     <!-- css 파일   -->
     <link href="../css/Header.css" rel="stylesheet">
 	
 	<link href="../css/Main_slider.css" rel="stylesheet">
     <link href="../css/swiper.css" rel="stylesheet">
-    
+  
     <link href="../css/Top_content.css" rel="stylesheet">
    
      <link href="../css/Footer.css" rel="stylesheet">
@@ -611,8 +612,6 @@
 	 	</div> <!-- footer -->
 	
 	
-	
-	
 	<!-- 메인 슬라이드 기능 swiper 연동 -------------------------------------->
   	<script src="../js/swiper.min.js"></script>
 	<script>/* swiper API 기능 */
@@ -628,7 +627,6 @@
              delay: 5000,
          },
      });</script>
-
 
   </body>
 </html>
