@@ -51,8 +51,7 @@ public class ContentDaoImpl extends SqlSessionDaoSupport implements ContentDao {
 	public ContentCommand selectContent(Integer seq) {
 		//Object ->BoardCommand
 		return (ContentCommand)getSqlSession().selectOne("selectContent",seq); 
-		//selectBoard sql 문장을 가지고와라. sql문장 하나니까 selectOne씀 데이터타입은 
-		//object이여서 클래스명 데이터타입으로 BoardCommand 가지고옴
+
 	}
 	
 	//조회수

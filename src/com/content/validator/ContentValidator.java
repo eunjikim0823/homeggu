@@ -26,7 +26,7 @@ public class ContentValidator implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors,"pwd","required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors,"writer","required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors,"title","required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors,"content","required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors,"board_content","required");
 		
 
 	}

@@ -33,9 +33,9 @@ public class ListController {
 	private Logger log=Logger.getLogger(this.getClass()); //자동으로 클래스명 등록
 	
 	@Autowired
-	private BoardDao boardDao;
+	private ContentDao contentDao;
 	
-	@RequestMapping("/board/list.do")
+	@RequestMapping("/content/list.do")
 	public ModelAndView process
 		( @RequestParam(value="pageNum", defaultValue="1")int currentPage,
 		   @RequestParam(value="keyField", defaultValue="") String keyField,

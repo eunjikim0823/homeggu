@@ -3,6 +3,7 @@ package com.content.controller;
 import java.io.File;
 
 import org.apache.log4j.Logger; //로그객체 관련 클래스 import
+import org.aspectj.util.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -10,10 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.board.dao.BoardDao;
 import com.board.domain.BoardCommand;
-import com.board.util.FileUtil;
 import com.board.util.StringUtil;
+import com.content.dao.ContentDao;
 
 @Component
 @Controller
@@ -27,7 +27,7 @@ public class DetailController {
 	 * 
 	 * */
 	@Autowired
-	private BoardDao boardDao; //byType <> byName(@Resource)
+	private ContentDao contentDao; //byType <> byName(@Resource)
 	
 	@RequestMapping("/board/detail.do") //"/board/detail.do"라는 가상경로 요청이 들어오면 @RequestMapping
 	public ModelAndView process(@RequestParam("seq") int seq) { //ModelAndView는 페이지 넘김 + 데이터 전송
@@ -38,12 +38,12 @@ public class DetailController {
 			log.debug("seq="+seq);
 		}
 		//1.조회수 증가
-		boardDao.updateHit(seq); //int->Integer(자동형변환 일어나기 때문)
+		contentDao.updateHit(seq); //int->Integer(자동형변환 일어나기 때문)
 		
 		//글내용 = \r\n aaa \r\n : 메소드로 구현(br로 변경)<pre></pre>
 		//\r\n 을 만나면 자동으로 줄바꿈(br)해주는 역할
-		BoardCommand board=boardDao.selectBoard(seq);
-		board.setContent(StringUtil.parseBr(board.getContent()));
+		ContentCommand content=contentDao.selectContent(seq);
+		content.setContent(StringUtil.parseBr(board.getContent()));
 		
 		/*==방식1
 		 * ModelAndView mav = new ModelAndView("boardView");

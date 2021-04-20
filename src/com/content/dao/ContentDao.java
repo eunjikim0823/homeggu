@@ -17,7 +17,7 @@ public interface ContentDao {
 	//3.최대값 번호 구하기
 	public int getNewSeq();
 	
-	//4.게시판의 글쓰기
+	//4.컨텐츠의 글쓰기
 	public void insert(ContentCommand content);
 	
 	 //5.게시물에 대한 게시물(레코드)한개 찾기
