@@ -2,7 +2,9 @@
 
 
 /*서치 및 아이콘 */
-.icon2 {position:absolute; right:280px; top:30px;}
+.dropdown {position:relative; }
+.icon2 {position:relative; top:45px; right:13%;
+			}
 
 
 			
