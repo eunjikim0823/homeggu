@@ -1,3 +1,5 @@
+<!-- post 사용하기 전 -->
+
 <html lang="ko">
   <head>
     <meta charset="UTF-8">
@@ -18,7 +20,8 @@
   
     <!-- css 파일   -->
     <link href="../css/Header.css" rel="stylesheet">
-    <link href="../css/Footer.css" rel="stylesheet">
+    <link href="../css/Contents.css" rel="stylesheet">
+     <link href="../css/Footer.css" rel="stylesheet">
     
    <!-- 글쓰기 양식 관련 스크립트/링크 -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
@@ -36,6 +39,7 @@
   	<div class="container">
 		<ul class="nav nav-tabs col-md-8 col-sm-8">
 			<li class="icon"><a href="index.jsp"><img src="../picture/home.png" class="img-rounded img-responsive" width="50" height="50"></a></li>
+
 			<li class="contents"><h2><a href="Contents_Board.html">홈꾸집들이 컨텐츠</a></h2></li>
 			<li class="free_board"><h2><a href="Board/freeBoard.html">커뮤니티</a></h2></li>
 			<li class="store"><h2><a href="shopping/index2.html">스토어</a></h2></li>
@@ -66,22 +70,58 @@
 	<!-- 글쓰기  -->
 	<div class="contents_write col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
 		<form>
-			 <div class="form-group">
+			 
+			<div class="form-group">
 			    <label for="title"><h1>제목</h1></label>
 			    <input type="text" class="form-control" placeholder="제목을 입력해주세요">
 		  	</div><!-- 제목 그룹 -->
 		  	
+		  	<!-- 거주상황 표기 -->
+		  	<div class="livingtype">
+			  	<select name="property" class="">
+			  		<option selected value hidden class="">주거형태</option>
+			  		<option value="1" class="">아파트</option>
+			  		<option value="2" class="">빌라&연립</option>
+			  		<option value="3" class="">오피스텔</option>
+			  		<option value="4" class="">주택</option>
+			  	</select>
+			  	
+			  	<select name="property" class="">
+			  		<option selected value hidden class="">평수</option>
+			  		<option value="1" class="">10평 이하</option>
+			  		<option value="2" class="">10평</option>
+			  		<option value="3" class="">20평</option>
+			  		<option value="4" class="">30평</option>
+			  	</select>
+			  	
+			  	<select name="property" class="">
+			  		<option selected value hidden class="">거주형태</option>
+			  		<option value="1" class="">싱글라이프</option>
+			  		<option value="2" class="">신혼부부</option>
+			  		<option value="3" class="">아이가 있는 집</option>
+			  		<option value="4" class="">부모님과 함께 사는 집</option>
+			  	</select>
+		  	</div>
+		  
+		  	
+		  	
+		  	
+		  	
+		  	
+		  	
+		  	
+		  	
+		  	
+		  	
+		  	
+		  	
 		  	<div class="form-group">
 		  		<label for="content"><h1>내용</h1></label>
 		  		<textarea class="form-control summernote" rows="10" id="content" placeholder="홈꾸와 멋진 집을 공유해주세요">
-		  			
-		  		
-		  		
-		  		
 		  		</textarea>
 		  	</div><!-- 내용 그룹 -->
-		  	<input type="button" class="btn btn-danger" value="글쓰기 완료">  
-			<input type="button" class="btn btn-warning" value="대표사진 선택"> 	
+		  	<input type="button" class="btn btn-warning btn-lg" value="대표사진 선택"> 	
+			  <input type="button" class="btn btn-danger btn-lg" value="글쓰기 완료">  
 				
 		</form>	    	
     </div><!--contents_write  -->
