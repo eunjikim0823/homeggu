@@ -18,7 +18,7 @@ public interface ContentDao {
 	public int getNewSeq();
 	
 	//4.컨텐츠의 글쓰기
-	public void insert(ContentCommand content);
+	public void insert(ContentCommand board_content);
 	
 	 //5.게시물에 대한 게시물(레코드)한개 찾기
 	 public ContentCommand selectContent(Integer seq);//~(int seq);
@@ -27,7 +27,7 @@ public interface ContentDao {
 	 public void updateHit(Integer seq);
 
 	 //7.글 수정하기
-	 public void update(ContentCommand content);
+	 public void update(ContentCommand board_content);
 	 
 	 //8.글 삭제하기
 	 public void delete(Integer seq);

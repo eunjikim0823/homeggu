@@ -1,3 +1,4 @@
+/*
 package com.content.controller;
 
 import java.io.File;
@@ -14,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.board.dao.BoardDao;
-import com.board.domain.BoardCommand;
-import com.board.util.FileUtil;
-import com.board.validator.BoardValidator;
+import com.content.dao.ContentDao;
+import com.content.domain.ContentCommand;
+import com.content.util.FileUtil;
+import com.content.validator.ContentValidator;
 
 @Component
 @Controller
@@ -27,7 +28,7 @@ public class UpdateController {
 	private Logger log=Logger.getLogger(this.getClass());
 	
 	@Autowired
-	private BoardDao boardDao;
+	private ContentDao contentDao;
 	
 	/*
 	 * 하나의 요청명령어=>하나의 컨트롤러만 사용X
@@ -35,14 +36,15 @@ public class UpdateController {
 	 * 같은 요청명령어를 GET or POST으로 전송할지를 결정하는 속성
 	 * method=RequestMethod.GET | method=RequestMethod.POST
 	 */
-	 //1.글수정 폼으로 이동(Get방식)->boardModify.jsp
+
+/*	 //1.글수정 폼으로 이동(Get방식)->boardModify.jsp
 	@RequestMapping(value="/board/update.do",method=RequestMethod.GET)
 	//public String form() {  //글쓰기 폼 : 페이지 이동만, 데이터 전달 x 
 	public ModelAndView form(@RequestParam("seq") int seq) { //수정 폼 : 페이지 이동+데이터 전달
 											//@RequestParam을 이용해서 seq 가지고 오고 int seq로 출력
 											//자바<>어노테이션 바꿀수 있어야함
 	System.out.println("다시 처음부터 값을 입력받기위해서 form()호출됨!");
-		BoardCommand boardCommand=boardDao.selectBoard(seq);
+		ContentCommand contentCommand=contentDao.selectContent(seq);
 	//return "boardModify"; 하면 안됨. return은 단순한 페이지 이동임
 		//1.이동할 페이지(확장자 생략) 2.키명. 3.전달할값
 		return new ModelAndView("boardModify","command",boardCommand);
@@ -83,7 +85,8 @@ public class UpdateController {
 			 /*
 			  * 기본파일명으로 업로드된 파일이 존재 ->파일 삭제 ->새로운파일로 세팅
 			  * */
-			 oldFileName=board.getFilename(); //old파일에 파일 가지고옴
+/*
+		 oldFileName=board.getFilename(); //old파일에 파일 가지고옴
 		
 		//업로드되어있다면
 			if(!command.getUpload().isEmpty()) {
@@ -123,4 +126,4 @@ public class UpdateController {
 		return "redirect:/board/list.do";
 	}
 }
-
+*/

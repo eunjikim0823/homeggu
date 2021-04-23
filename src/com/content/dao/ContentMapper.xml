@@ -3,16 +3,16 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
     
-<mapper namespace="Board">  
+<mapper namespace="Content">  
  	
- 	<!-- 1.springboard 테이블에서 sql작업(1.글목록보기) -->
+ 	<!-- 1.content_board 테이블에서 sql작업(1.글목록보기) -->
 	
-	<!-- Mybatis에서 동적인 sql은 <where></where> 태그를 쓴다 -->
-	
-		<select  id="selectList"  parameterType="map"  resultType="BoardCommand"  >
-	    select seq,writer,title,board_content,pwd,hit,regdate,filename
-            from ( select a.*, rownum rnum
-                from (select * from homeggucontent
+	<!-- 	
+	검색어는 아직 구현 x 일단 컨텐츠 업로드부터 하기  -->
+	<select  id="selectList"  parameterType="map"  resultType="ContentCommand"  >
+	    select seq,writer,title,board_content,pwd,hit,regdate,filename,mate,hsize,style
+            from ( select a. *, rownum rnum
+                from (select * from contents_board
                    <where>
                      <if test="keyWord!=null and keyField=='title'">
                             title like '%' || #{keyWord} || '%'
@@ -38,8 +38,8 @@
 	<!-- 2.검색어에 해당하는 총 레코드수 구하기
 			java.lang.Integer ->Integer ->int -->
 			
-		<select id="selectCount" parameterType="map" resultType="Integer">
-	    select count(*) from homeggucontent
+	<select id="selectCount" parameterType="map" resultType="Integer">
+	    select count(*) from content_board
                 <where>
                      <if test="keyWord!=null and keyField=='title'">
                             title like '%' || #{keyWord} || '%'
@@ -57,36 +57,38 @@
                      </if>
                  </where>
  		</select>
- 
 	
 	<!-- 최대값 구하기 -->
  <select id="getNewSeq" resultType="int" >
-    select max(seq) from homeggucontent
+    select max(seq) from content_board
  </select>
  
- <!--3.글쓰기(sysdate, mysql(now())  com.board.domain.BoardCommand
+ <!--3.컨텐츠 글쓰기
     #{매개변수명(=테이블의 필드명=멤버변수명}=>Getter Method호출하는 문장이다. 
    -->
  <insert id="insertContent" parameterType="ContentCommand">
-     insert into homeggucontent(seq,writer,title,board_content,pwd,hit,regdate,filename)
+     insert into content_board(seq,writer,title,board_content,pwd,hit,regdate,filename,type,hsize,mate)
      values(#{seq},#{writer},#{title},#{board_content},#{pwd},0,sysdate,
-     #{filename,jdbcType=VARCHAR})
+     #{filename,jdbcType=VARCHAR},#{type},#{hsize},#{mate})
  </insert>
 		 
 	 <!--4. 조회수 -->
 	 <update id="updateHit" parameterType="Integer">
-	    update homeggucontent set hit=hit+1 where seq=#{seq}
+	    update content_board set hit=hit+1 where seq=#{seq}
 	 </update>
  	 
 	 <!--5. 글상세보기(레코드 한개 출력)  -->
 	 <select id="selectContent" parameterType="Integer" resultType="ContentCommand">
-	    select * from homeggucontent where seq=#{seq}
+	    select * from content_board where seq=#{seq}
 	 </select>
 	 
 	 <!-- 글수정하기 -->
 	 <update id="updateContent"  parameterType="ContentCommand">
-	 	update homeggucontent set writer=#{writer}, title=#{title},board_content=#{board_content},
-	 	filename=#{filename:VARCHAR} where seq=#{seq}
+	 	update content_board set 
+	 	writer=#{writer}, title=#{title}, board_content=#{board_content},
+	 	filename=#{filename:VARCHAR} 
+	 	type=#{type}, hsize#{hsize}, mate=#{mate}
+	 	where seq=#{seq}
 	 </update>
 	 
 	 <!-- 
@@ -99,7 +101,7 @@
 	 
 	 <!-- 특정 게시물 글삭제하기  -->
 	 <delete id="deleteContent" parameterType="Integer" >
-	 	delete from homeggucontent where seq=#{seq}
+	 	delete from content_board where seq=#{seq}
 	 </delete>
 	 
 	 

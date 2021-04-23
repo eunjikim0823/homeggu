@@ -16,51 +16,34 @@ public class ContentCommand {
 	private Date regdate; //작성날짜
 
 	//거주타입 설정. //추후 글 검색에 필드설정예정
-	private String home_type, home_size, home_part, home_space, home_style, home_mate;
+	private String type, hsize, mate;
 	
 
 	//업로드 기능->대표사진도 업로드를 해야지 불러올 수 있다
 	private MultipartFile upload; //업로드 할 때 필요한 객체 private
 	String filename;//업로드한 파일명
-	 	
+
 	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	
-	public String getHome_type() {
-		return home_type;
+	public String getHsize() {
+		return hsize;
 	}
-	public void setHome_type(String home_type) {
-		this.home_type = home_type;
+	public void setHsize(String hsize) {
+		this.hsize = hsize;
 	}
-	public String getHome_size() {
-		return home_size;
+	public String getMate() {
+		return mate;
 	}
-	public void setHome_size(String home_size) {
-		this.home_size = home_size;
+	public void setMate(String mate) {
+		this.mate = mate;
 	}
-	public String getHome_part() {
-		return home_part;
-	}
-	public void setHome_part(String home_part) {
-		this.home_part = home_part;
-	}
-	public String getHome_space() {
-		return home_space;
-	}
-	public void setHome_space(String home_space) {
-		this.home_space = home_space;
-	}
-	public String getHome_style() {
-		return home_style;
-	}
-	public void setHome_style(String home_style) {
-		this.home_style = home_style;
-	}
-	public String getHome_mate() {
-		return home_mate;
-	}
-	public void setHome_mate(String home_mate) {
-		this.home_mate = home_mate;
-	}
+
 	public String getBoard_content() {
 		return board_content;
 	}
@@ -123,10 +106,11 @@ public class ContentCommand {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "BoardCommand[seq="+seq+",writer="+writer+",title="
+		return "ContentCommand[seq="+seq+",writer="+writer+",title="
 				   +title+",board_content="+board_content+",pwd="+pwd+",hit="
 				   +hit+",regdate="+regdate+",upload="+upload
+				   +type+",type="+hsize+",hsize="+mate+",mate="
 				   +",filename="+filename+"]";
 	}
-	
+
 }

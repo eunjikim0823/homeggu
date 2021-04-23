@@ -42,9 +42,9 @@ public class ContentDaoImpl extends SqlSessionDaoSupport implements ContentDao {
 	
 
 	//글쓰기 
-	public void insert(ContentCommand content) {
+	public void insert(ContentCommand board_content) {
 		// TODO Auto-generated method stub
-		getSqlSession().insert("insertContent",content);
+		getSqlSession().insert("insertContent",board_content);
 	} 
 	
 	//글상세보기
@@ -61,9 +61,9 @@ public class ContentDaoImpl extends SqlSessionDaoSupport implements ContentDao {
 	}
 	
 	//글수정
-	public void update(ContentCommand content) {
+	public void update(ContentCommand board_content) {
 		// TODO Auto-generated method stub
-		getSqlSession().update("updateContent", content);
+		getSqlSession().update("updateContent", board_content);
 	
 	}
 	

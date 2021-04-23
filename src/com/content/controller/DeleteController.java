@@ -1,3 +1,4 @@
+/*
 package com.content.controller;
 
 import org.apache.log4j.Logger;
@@ -78,4 +79,4 @@ public class DeleteController {
 			return "redirect:/content/list.do";
 	}
 }
-
+*/

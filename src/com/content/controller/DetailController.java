@@ -1,3 +1,4 @@
+/*
 package com.content.controller;
 
 import java.io.File;
@@ -26,6 +27,7 @@ public class DetailController {
 	 * 레코드 하나 통째로(DTO객체) : @ModelAttribute(command 객체별칭명) DTO자료형 객체명
 	 * 
 	 * */
+/*
 	@Autowired
 	private ContentDao contentDao; //byType <> byName(@Resource)
 	
@@ -51,7 +53,7 @@ public class DetailController {
 		 * return mav;
 		 */
 												//1.이동할 페이지명,2.전달할 키명,3.전달할 값->boardView.jsp 전달
-		return new ModelAndView("boardView","board",board);
+/*		return new ModelAndView("boardView","board",board);
 	}
 	
 	//글상세보기와 연관(다운로드)
@@ -72,3 +74,4 @@ public class DetailController {
 	
 	
 }
+*/

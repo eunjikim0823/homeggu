@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 
 import org.apache.log4j.Logger;
-import org.aspectj.util.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.content.util.FileUtil;
 import com.content.dao.ContentDao;
 import com.content.domain.ContentCommand;
 import com.content.validator.ContentValidator;
@@ -33,11 +33,12 @@ public class WriterController {
 	 * 같은 요청명령어를 GET or POST으로 전송할지를 결정하는 속성
 	 * method=RequestMethod.GET | method=RequestMethod.POST
 	 */
+	
 	 //1.글쓰기 폼으로 이동(Get방식)
-	@RequestMapping(value="/content/write.do",method=RequestMethod.GET)
+	@RequestMapping(value="/main/Contents_write.do",method=RequestMethod.GET)
 	public String form() {  //메서드명은 임의로 작성
 		System.out.println("다시 처음부터 값을 입력받기위해서 form()호출됨!");
-		return "contentWrite";// return "이동할 페이지명'//definition name과 동일
+		return "Contents_write";// return "이동할 페이지명'//definition name과 동일
 	}
 	
 	//2.에러메세지 출력=>다시 초기화가 가능하게 설정->@ModelAttribute("커맨드객체 별칭명")
@@ -48,7 +49,7 @@ public class WriterController {
 	}
 	//3.입력해서 유효성검사->에러발생
 	//BindingResult->유효성검사때문에 필요=>에러정보객체를 저장
-	@RequestMapping(value="/content/write.do",method=RequestMethod.POST)
+	@RequestMapping(value="/Contents_write.do",method=RequestMethod.POST)
 	public String submit(@ModelAttribute("command") ContentCommand command,
 			                       BindingResult result) {
 		
@@ -95,7 +96,7 @@ public class WriterController {
 		}
 		
 		//return "redirect:요청명령어"; =>return "이동할 페이지명"
-		return "redirect:/content/list.do";
+		return "Contents_Board.do";
 	}
 }
 
