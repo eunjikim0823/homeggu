@@ -53,17 +53,17 @@
 	    	<div class="container">
 				<ul class="nav nav-tabs col-md-8 col-sm-8">
 					<li class="icon"><a href="index.jsp"><img src="../picture/home.png" class="img-rounded img-responsive" width="50" height="50"></a></li>
-					<li class="contents"><h2><a href="Contents_Board.html">홈꾸집들이 컨텐츠</a></h2></li>
-					<li class="free_board"><h2><a href="Board/freeBoard.html">커뮤니티</a></h2></li>
-					<li class="store"><h2><a href="shopping/index2.html">스토어</a></h2></li>
+					<li class="contents"><h2><a href="Contents_Board.do">홈꾸집들이 컨텐츠</a></h2></li>
+					<li class="free_board"><h2><a href="Board/freeBoard.do">커뮤니티</a></h2></li>
+					<li class="store"><h2><a href="shopping/index2.do">스토어</a></h2></li>
 			   	</ul>	
 			   		 <!--검색창-->
   
 			 	<div class="col-md-4 col-sm-4">
        				<table class="top"width="130" height="40">
             			<tr>	
-            			<td><a href="login.jsp" class="text-danger">로그인</a></td>
-            			 <td><a href="join.jsp" class="text-danger">회원가입</a></td>
+            			<td><a href="Join/login.do" class="text-danger">로그인</a></td>
+            			 <td><a href="Join/join.do" class="text-danger">회원가입</a></td>
             			 </tr>
       				</table>
             
@@ -78,8 +78,6 @@
 		    	</div>
 			</div><!-- class="container"-->		
 		</nav><!-- header -->
-	<!-- /헤더영역 -->
-
 	<!-- /헤더영역 -->
 
 	<!-- 메인 슬라이드 영역 ---------------------------------------------->

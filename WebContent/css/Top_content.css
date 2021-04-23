@@ -1,12 +1,14 @@
 @charset "UTF-8";
 
-#top_content {margin:10px; padding:10px; }
+#top_content {display:block; margin:10px; padding:10px; }
 
 #top_content content {padding:10px;}
 
+
  /* textbox 위치조정 */
+
 .text-box {
-				padding-top: 50px; padding-bottom:35px;
+				padding-top: 50px; padding-bottom:15px;
 				text-align: center;}
 				
 .text {position:relative; font-family: 'Hi Melody', cursive;	
@@ -16,7 +18,7 @@
 		  
 .text-box:after{content:' '; width: 80%; height: 1px; 
 						background: black;
-						position:absolute; left: 10%;bottom: 17px;}	
+						position:absolute; left: 10%; bottom: 17px; }	
 			
 /*게시물 사진 위치 조정*/			
 
