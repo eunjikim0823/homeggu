@@ -10,14 +10,17 @@
        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
        
   <!-- com.board 의 모든 패키지 component  -->     
-  <context:component-scan base-package="com.board" />     
+  <context:component-scan base-package="com.content" />     
        
-  <!-- 일부 패키지를 원하는 경우 
-  <context:component-scan base-package="com.board.controller" />     
-  <context:component-scan base-package="com.board.dao" />        
-    -->
     
-       
+    <bean id="viewResolver"
+      class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+     <property name="viewClass" 
+                   value="org.springframework.web.servlet.view.JstlView" />
+     <property name="prefix" value="/main/" />
+     <property name="suffix" value=".jsp"></property>
+ </bean>
+    
 <!-- @Autowired 사용을 위해 -->
    <!--  <context:annotation-config/>  -->
  	
@@ -36,7 +39,7 @@
  	<bean class="com.board.controller.DeleteController" /> -->
  	
  	<!-- downloadView 클래스만 있고 객체가 없어서 오류 -->
- 	<bean id="downloadView" class="com.board.view.DownloadView" />
+ 	<bean id="downloadView" class="com.content.view.DownloadView" />
  	
  
    
