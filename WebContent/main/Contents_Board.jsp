@@ -34,9 +34,9 @@
 	    	<div class="container">
 				<ul class="nav nav-tabs col-md-8 col-sm-8">
 					<li class="icon"><a href="index.jsp"><img src="../picture/home.png" class="img-rounded img-responsive" width="50" height="50"></a></li>
-					<li class="contents"><h2><a href="Contents_Board.jsp">홈꾸집들이 컨텐츠</a></h2></li>
-					<li class="free_board"><h2><a href="Board/freeBoard.html">커뮤니티</a></h2></li>
-					<li class="store"><h2><a href="shopping/index2.html">스토어</a></h2></li>
+					<li class="contents"><h2><a href="Contents_Board.do">홈꾸집들이 컨텐츠</a></h2></li>
+					<li class="free_board"><h2><a href="Board/freeBoard.do">커뮤니티</a></h2></li>
+					<li class="store"><h2><a href="shopping/index2.do">스토어</a></h2></li>
 			   	</ul>	
 			   		 <!--검색창-->
   
@@ -152,7 +152,7 @@
 					</li>			
 				</ul>
 				<input type="button" class="btn btn-lignt icon3" value="적용">	
-				<a href="Contents_write.jsp">
+				<a href="Contents_write.do">
 					<input type="button" class="btn btn-danger icon3" value="글쓰기">
 				</a>						
 			</div><!-- container -->
