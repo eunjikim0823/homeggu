@@ -14,19 +14,19 @@
             from ( select a. *, rownum rnum
                 from (select * from contents_board
                    <where>
-                     <if test="keyWord!=null and keyField=='title'">
-                            title like '%' || #{keyWord} || '%'
+                     <if test="keyWord!=null and keyField=='mate'">
+                            mate like '%' || #{keyWord} || '%'
                      </if>
-                     <if test="keyWord!=null and keyField=='writer'">
-                            writer like '%' || #{keyWord} || '%'
+                     <if test="keyWord!=null and keyField=='hsize'">
+                            hsize like '%' || #{keyWord} || '%'
                      </if>
-                     <if test="keyWord!=null and keyField=='board_content'">
-                            board_content like '%' || #{keyWord} || '%'
+                     <if test="keyWord!=null and keyField=='style'">
+                            style like '%' || #{keyWord} || '%'
                      </if>
                      <if test="keyWord!=null and keyField=='all'">
-                            title like '%' || #{keyWord} || '%'  or
-                            writer like '%' || #{keyWord} || '%'  or
-                            board_content like '%' || #{keyWord} || '%'
+                            mate like '%' || #{keyWord} || '%'  or
+                            hsize like '%' || #{keyWord} || '%'  or
+                            style like '%' || #{keyWord} || '%'
                      </if>
                    </where>        
                      order by seq desc)a)
@@ -39,7 +39,7 @@
 			java.lang.Integer ->Integer ->int -->
 			
 	<select id="selectCount" parameterType="map" resultType="Integer">
-	    select count(*) from content_board
+	    select count(*) from contents_board
                 <where>
                      <if test="keyWord!=null and keyField=='title'">
                             title like '%' || #{keyWord} || '%'

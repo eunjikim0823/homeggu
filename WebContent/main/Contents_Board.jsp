@@ -163,30 +163,32 @@
 			<!-- https://ohou.se/projects/30967/detail	 -->		
 				
 				<div class="row">	 <!-- 컨텐츠 업로드 db연결  ★★★ ★★★ ★★★ ★★★-->
-					<div class="col-md-4 col-sm-4">
-					    <article class="content">
-					    	조회수:${content.hit}&nbsp; &nbsp;&nbsp; &nbsp; 작성날짜:${content.regdate}
-					      <a href="#" >
-					            <div class=content_img>
-					              <img src="../picture/인기게시물/이미지3.jpg" alt="1" class="img-rounded img-responsive">
-					            	${content.filename}
-					            </div><!-- content_img -->
-					            <div class="text">
-					              ${content.title}
-					            </div><!-- text -->  
-					       </a> 
-					             
-				            <div class="content_writer">
-				                ${content.writer}     
-				            </div><!-- content_writer -->
-					       					          
-					       <div class="style_tag">
-						       <hr>
-						       	${content.type}&nbsp;&nbsp;${content.size}&nbsp;&nbsp;${content.mate}
-						      
-					       </div><!-- style_tag -->       
-					    </article><!-- content -->
-					</div><!-- class="col-md-4 col-sm-4" --> 
+					<c:foreach items="${list}" var="content"><!-- 데이터만큼 반복 -->
+						<div class="col-md-4 col-sm-4">
+						    <article class="content">
+						    	조회수:${content.hit}&nbsp; &nbsp;&nbsp; &nbsp; 작성날짜:${content.regdate}
+						      <a href="#" >
+						            <div class="thumbnail">
+						              <img src="../picture/인기게시물/이미지3.jpg" alt="1" class="img-rounded img-responsive">
+						            	${content.filename}
+						            </div><!-- content_img -->
+						            <div class="text">
+						              ${content.title}
+						            </div><!-- text -->  
+						       </a> 
+						             
+					            <div class="content_writer">
+					                ${content.writer}     
+					            </div><!-- content_writer -->
+						       					          
+						       <div class="style_tag">
+							       <hr>
+							       	${content.type}&nbsp;&nbsp;${content.size}&nbsp;&nbsp;${content.mate}
+							      
+						       </div><!-- style_tag -->       
+						    </article><!-- content -->
+						</div><!-- class="col-md-4 col-sm-4" --> 
+					</c:foreach>	
 				</div>	
 				
 				
