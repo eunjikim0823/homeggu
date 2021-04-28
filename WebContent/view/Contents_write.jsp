@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file ="common/header.jsp" %>
+<%@include file ="header.jsp" %>
     <!-- css 파일   -->
     <link href="../css/Contents.css" rel="stylesheet">
 
-	<!-- 글쓰기  -->
+	<!-- 글쓰기  ------------------------------------------------------------------------------->
 	<div class="contents_write col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
 		
 		<form action="Contents_Write.do" method="post" enctype="multipart/form-data">
@@ -42,10 +42,7 @@
 			  		<option value="4" class="">부모님과 함께 사는 집</option>
 			  	</select>
 		  	</div>
-		  
 
-		  	
-		  	
 		  	<div class="form-group">
 		  		<label for="content"><h1>내용</h1></label>
 		  		<textarea class="form-control summernote" rows="10" id="content" placeholder="홈꾸와 멋진 집을 공유해주세요">
@@ -57,9 +54,18 @@
 			<input type="button" class="btn btn-danger btn-lg" onclick="alert('글쓰기가 완료되었습니다')" value="글쓰기 완료">  
 			<input type="button" class="btn btn-danger btn-lg" onclick="history.back(-1)" value="글목록">  
 		</form>	    	
-    </div><!--contents_write  -->
+    </div><!--contents_write  ---------------------------------------------------------------------------------------------------------->
     
-	<!-- 글쓰기 양식 관련 스크립트/링크 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<!-- 글쓰기 양식 관련 스크립트/링크 ------------------------------------------------------------------------------------------------------->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
@@ -78,4 +84,4 @@
       });
     </script>	
 	
-<%@include file ="common/footer.jsp" %>
+<%@include file ="footer.jsp" %>

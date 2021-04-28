@@ -27,7 +27,7 @@
     <!-- css 파일   -->
     <link href="../css/Header.css" rel="stylesheet">
 	
-   <title>홈꾸 메인화면</title>
+   <title>홈꾸미기</title>
 
   	<!-- 헤더영역------------------------------------------------- -->
 
@@ -57,8 +57,7 @@
 		                    </button> 
 		             </form>
 		    	</div>
-			</div><!-- class="container"-->		
-		</nav><!-- header -->
+			</div><!-- class="container"-->	
 	<!-- /헤더영역 -->
 	
  </head>
