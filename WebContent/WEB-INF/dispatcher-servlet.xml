@@ -8,7 +8,9 @@
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-       
+  
+  
+  <context:annotation-config/>     
   <!-- com.board 의 모든 패키지 component  -->     
   <context:component-scan base-package="com.content" />     
        
@@ -17,7 +19,7 @@
       class="org.springframework.web.servlet.view.InternalResourceViewResolver">
      <property name="viewClass" 
                    value="org.springframework.web.servlet.view.JstlView" />
-     <property name="prefix" value="/main/" />
+     <property name="prefix" value="/view/" />
      <property name="suffix" value=".jsp"></property>
  </bean>
     
@@ -30,13 +32,13 @@
       -->
       
  	<!-- 자료실의 글 목록보기 -->
-   <!--  수동으로 빈을 등록시켜주는 구문 / 매번 수동으로 쓸 수 없으니까 어노테이션 사용 @Component
-    <bean class="com.board.dao.BoardDaoImpl" />
-    <bean class="com.board.controller.ListController" />
-    <bean class="com.board.controller.WriterController" />
- 	<bean class="com.board.controller.DetailController" />
- 	<bean class="com.board.controller.UpdateController" />
- 	<bean class="com.board.controller.DeleteController" /> -->
+   <!--  수동으로 빈을 등록시켜주는 구문 / 매번 수동으로 쓸 수 없으니까 어노테이션 사용 @Component -->
+ <!-- <bean class="com.content.dao.ContentDaoImpl" />
+    <bean class="com.content.controller.ListController" />
+    <bean class="com.content.controller.WriterController" />
+ 	<bean class="com.content.controller.DetailController" />
+ 	<bean class="com.content.controller.UpdateController" />
+ 	<bean class="com.content.controller.DeleteController" /> -->
  	
  	<!-- downloadView 클래스만 있고 객체가 없어서 오류 -->
  	<bean id="downloadView" class="com.content.view.DownloadView" />
@@ -96,6 +98,37 @@
        <property name="maxUploadSize" value="52428800" />   
        <property name="defaultEncoding" value="utf-8" />     
    </bean>
+    
+    
+    
+    <!-- @Autowired,@Required  -->
+<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
+<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+    
+    
+  <!--(2) 요청명령어에 따른 처리해주는 컨트롤러를 문의? -->
+<bean id="defaultHandlerMapping" 
+         class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+    
+    
+ <!-- 0.DB접속(JNDI) -->
+<!--  <bean id="boardDAO" class="lee.BoardDAO" /> -->
+ <bean id="boardDAO" class="lee.SqlMapBoardDao">
+     <property name="sqlSessionFactory" 
+                      ref="sqlSessionFactory" />
+ </bean>   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 </beans>
 
