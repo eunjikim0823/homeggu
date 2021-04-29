@@ -1,7 +1,17 @@
 @charset "UTF-8";
 
+/* a 링크 초기화 */
+a {color: #222; text-decoration: none;}
+a:hover {color: gray;}
+
+/* 블릿기호 초기화 */
+ul,li,ol {list-style:none;}
+
+
 /* 헤더 글자 위치 재설정 */
-.icon {margin-top:24px; margin-left:15px; }
+
+.icon{margin-top:5px;}
+
 .contents {padding:30px; text-align:center;
 					font-family: 'Hi Melody', cursive;
 					font-size:25px; 

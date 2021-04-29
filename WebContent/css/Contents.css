@@ -2,10 +2,7 @@
 
 
 /*서치 및 아이콘 */
-.dropdown {position:relative; }
-.icon2 {position:relative; top:45px; right:13%;
-			}
-
+.icon3 {margin-top:6px;}
 
 			
 /*게시물 사진 위치 조정*/			
@@ -27,5 +24,7 @@
 .content_writer  {text-align: center; margin-top:5px; margin-bottom:-10px;}	
 	
 .style_tag  {text-align: center; color:red; }	
-			  
 
+
+/* 게시물 글쓰기 여백 */
+.contents_write > form {margin-top:10px;}

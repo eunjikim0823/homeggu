@@ -23,3 +23,5 @@ a:hover {color: gray;}
 .footer_container .col-md-3 ul li	 hr { margin-top:-4px;}						
 
 .footer_text {padding-bottom:-15px;}
+
+.page {padding-right:15%; padding-left:15%;}
