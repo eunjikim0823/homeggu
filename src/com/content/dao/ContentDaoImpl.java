@@ -17,7 +17,7 @@ import com.content.domain.ContentCommand;
 
 //@Component 
 //@Repository
-@Service("ContentDaoImpl")
+@Service("contentDaoImpl")
 public class ContentDaoImpl extends SqlSessionDaoSupport implements ContentDao {
 
 	//검색분야에 따른 검색어까지 조회(페이징 처리)

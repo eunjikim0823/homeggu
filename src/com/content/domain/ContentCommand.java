@@ -10,10 +10,10 @@ import org.springframework.web.multipart.MultipartFile;
 public class ContentCommand {
 
 	private int seq; //게시물번호
-	private String writer, title, board_content , pwd;
+	private String writer, title, board_content , pwd; //작성자, 제목, 글내용, 비밀번호
 
-	private int hit; //조회수
-	private Date regdate; //작성날짜
+	String writeday; //작성일
+	int readcnt;//조회수
 
 	//거주타입 설정. //추후 글 검색에 필드설정예정
 	private String type, hsize, mate;
@@ -103,14 +103,4 @@ public class ContentCommand {
 		this.filename = filename;
 	}
 	
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return "ContentCommand[seq="+seq+",writer="+writer+",title="
-				   +title+",board_content="+board_content+",pwd="+pwd+",hit="
-				   +hit+",regdate="+regdate+",upload="+upload
-				   +type+",type="+hsize+",hsize="+mate+",mate="
-				   +",filename="+filename+"]";
-	}
-
 }

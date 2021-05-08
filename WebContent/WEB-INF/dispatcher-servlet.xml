@@ -8,127 +8,100 @@
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-  
-  
-  <context:annotation-config/>     
-  <!-- com.board 의 모든 패키지 component  -->     
-  <context:component-scan base-package="com.content" />     
-       
-    
-    <bean id="viewResolver"
-      class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-     <property name="viewClass" 
-                   value="org.springframework.web.servlet.view.JstlView" />
-     <property name="prefix" value="/view/" />
-     <property name="suffix" value=".jsp"></property>
- </bean>
-    
+ 
+<context:component-scan base-package="com.content" />
+
 <!-- @Autowired 사용을 위해 -->
    <!--  <context:annotation-config/>  -->
- 	
-     <!-- 컨트롤러 자동스캔
-      <context:component-scan base-package="com.board" /> 컨트롤러 클래스를 일일이 작성
-                                                                                          하지 않아도 된다.
-      -->
-      
- 	<!-- 자료실의 글 목록보기 -->
-   <!--  수동으로 빈을 등록시켜주는 구문 / 매번 수동으로 쓸 수 없으니까 어노테이션 사용 @Component -->
- <!-- <bean class="com.content.dao.ContentDaoImpl" />
-    <bean class="com.content.controller.ListController" />
-    <bean class="com.content.controller.WriterController" />
- 	<bean class="com.content.controller.DetailController" />
- 	<bean class="com.content.controller.UpdateController" />
- 	<bean class="com.content.controller.DeleteController" /> -->
- 	
- 	<!-- downloadView 클래스만 있고 객체가 없어서 오류 -->
- 	<bean id="downloadView" class="com.content.view.DownloadView" />
- 	
+    
+    <!-- 자료실의 글목록보기  -->
+    <!-- 수동으로 빈을 등록시켜주는 구문
+    <bean class="com.board.dao.BoardDaoImpl" />
+    <bean class="com.board.controller.ListController" />
+    <bean class="com.board.controller.WriteController" />
+    <bean class="com.board.controller.DetailController" />
+    <bean class="com.board.controller.UpdateController" />
+    <bean class="com.board.controller.DeleteController" />
+    ,,, 
+    -->
+    
+    <!-- DownloadView클래스 객체가 생성이 되지않아서 에러유발 
+      return new ModelAndView
+				("downloadView","downloadFile",downloadFile);
+     -->
+    <bean id="downloadView" class="com.content.view.DownloadView" />
+    
+    <!-- tiles (ViewResolver)설정 -->
+    <bean id="tilesConfigurer" 
+      class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+        <property name="definitions">
+            <list>
+                <value>/WEB-INF/tiles-def/tilesdef.xml</value>
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="viewResolver" 
+     class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <property name="viewClass"
+         value="org.springframework.web.servlet.view.tiles3.TilesView"/>
+        <property name="order" value="1"/>
+    </bean>
+    
+    <!-- 리소스 번들 설정
+     리소스번들 파일->웹상에서 필요로하는 문자열이나 유효성검사에 관련된 
+                          부분을 불러올 수 있도록 해주는 파일
+       패키지명(messages).불러올 파일명(label).properties(확장자 생략)
+     -->
+     
+ <bean id="messageSource"
+    class="org.springframework.context.support.ResourceBundleMessageSource">
+       <property name="basenames">
+          <list>
+             <value>messages.label</value>
+             <value>messages.validation</value>
+          </list>
+       </property>
+       <!-- <property name="defaultEncoding" value="utf-8" /> -->
+ </bean>
+    
+    <!-- 예외페이지 작성(에러가 발생이 될때 개발자가
+                               작성한 예외페이지로 이동)
+       톰캣서버가 에러메세지를 알려줬는데 지금은 개발자가
+       작성한 에러메세지페이지를 통해서 에러정보를 알고 싶을때 
+       
+        <prop key="발생가능성이 있는 예외처리클래스명">
+          예외처리페이지명(확장자 생략)</prop>                        
+                                -->
+    
+ <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+   <property name="exceptionMappings">
+      <props>
+          <prop key="java.lang.Exception">pageError</prop>
+      </props>
+   </property>
+ </bean> 
  
-   
+ <!-- 파일 다운로드뷰를 위한 전용 viewResolver를 빈즈로 등록(객체생성하기위해서)
+      setOrder(0) -->
+ <bean class="org.springframework.web.servlet.view.BeanNameViewResolver"
+           p:order="0" />
+ 
+ <!-- 파일업로드(52428800(byte단위) 
+    50MB->51,200kb->52,428,800byte
+    CommonMultipartResolver 업로드 관여 클래스를 빈즈로 등록
+    maxUploadSize(최대업로드 크기지정)
+    defaultEncoding(한글처리부분설정)
+   -->
+   <bean id="multipartResolver"
+       class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+       <property name="maxUploadSize" value="52428800" />
+       <property name="defaultEncoding" value="utf-8" /> 
+  </bean>
+ 
+ 
+ 
     
-    <!-- 리소스 번들 설정 
-    		리소스번들파일 : 웹상에서 필요로 하는 문자열이나 유효성검사에 관련된 부분을 불러올 수 있도록 해주는 파일
-    						<아이디는 필수입력사항입니다 등의 멘트>
-    						패키지명(messages).불러올 파일명(label).properties(확장자 생략)     						
-       							-->
-    
-    <bean id="messageSource" 
-        class="org.springframework.context.support.ResourceBundleMessageSource">
-        <property name="basenames">
-	        <list>
-	            <value>messages.label</value>
-	            <value>messages.validation</value>
-	        </list>
-        </property>
-        <!-- <property name="defaultEncoding" value="utf-8" /> -->
-    </bean>
-    
-    			
-    <!-- 예외페이지 작성 
-    		: 에러가 발생될 때 개발자가 작성한 예외페이지로 이동한다 
-    		지금까지는 톰캣서버가 에러를 알려줬는데 예외페이지를 작성하면 내가 작성한 에러메세지페이지로 에러정보를 안내						
-    							
-    		<prop key="발생가능성이 있는 예외처리클래스명">예외처리페이지명(확장자 생략)</prop>					
-    							
-    							
-    							-->
-     <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-        <property name="exceptionMappings">
-            <props>
-                <prop key="java.lang.Exception">pageError</prop>
-            </props>
-        </property>
-    </bean>
-    
-    <!-- 파일 다운로드 뷰를 위한 전용 viewResolver를 빈즈로 등록 / 객체생성하기 위해서 빈즈 등록  
-    	setOrder(0)-->
-    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver"
-    	p:order="0" />
-    
-    
-    
-    <!-- 파일업로드(52428800byte단위)
-    		50mb -> 51,200kb -> 52428800byte 
-    		CommonMultipartResolver 업로드 관여 클래스를 빈즈로 등록
-    		maxUploadSize(최대업로드 크기 지정)
-    		defaultEncodiong(한글처리부분설정)-->
-    		
-        <bean id="multipartResolver" 
-               class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-       <property name="maxUploadSize" value="52428800" />   
-       <property name="defaultEncoding" value="utf-8" />     
-   </bean>
-    
-    
-    
-    <!-- @Autowired,@Required  -->
-<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
-<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
-    
-    
-  <!--(2) 요청명령어에 따른 처리해주는 컨트롤러를 문의? -->
-<bean id="defaultHandlerMapping" 
-         class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
-    
-    
- <!-- 0.DB접속(JNDI) -->
-<!--  <bean id="boardDAO" class="lee.BoardDAO" /> -->
- <bean id="boardDAO" class="lee.SqlMapBoardDao">
-     <property name="sqlSessionFactory" 
-                      ref="sqlSessionFactory" />
- </bean>   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+ 
 </beans>
 

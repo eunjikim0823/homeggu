@@ -23,9 +23,9 @@
 			  <div class="col-md-3 col-sm-3" >
 		 		 <ul>
                     <li><b>홈꾸안내<hr></b></a></li>
-                    <li><a href="Footer_info1.do">배송비 안내</a></li>
-                    <li><a href="Footer_info2.do">교환,반품 방법 안내</a></li>
-                    <li><a href="Footer_info3.do">배송상태 및 취소 변경 안내</a></li>
+                    <li><a href="Footer_info1.jsp">배송비 안내</a></li>
+                    <li><a href="Footer_info2.jsp">교환,반품 방법 안내</a></li>
+                    <li><a href="Footer_info3.jsp">배송상태 및 취소 변경 안내</a></li>
                  </ul>
 		 	  </div>	<!-- col-md-3 -->
 		 	  <div class="col-md-3 col-sm-3">
